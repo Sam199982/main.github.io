@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* 고정된 사이드바 */
+.sidebar {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 200px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    height: 100vh;
+    border-right: 1px solid #ddd;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 30px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* 메인 콘텐츠 여백 추가 */
+body{
+    margin-left: 220px; /* 사이드바 넓이만큼 여백 추가 */
+    padding: 20px;
+}
+
+/* 기타 스타일 유지 */
+.header {
+    background: url('header-background.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+/* 나머지 섹션 스타일 그대로 유지 */
+
+
+.introduction, .gallery, .influence, .personal-life {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.introduction .content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.introduction img {
+    width: 300px;
+    border-radius: 8px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-left: -220px;
+}
+
+.footer .social a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer .social a:hover {
+    text-decoration: underline;
+}
+
+/* 스크롤 애니메이션을 위한 초기 상태 */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 이미지 일렁임 효과 */
+@keyframes wobble {
+    0%, 100% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+.gallery-item img.wobble {
+    animation: wobble 0.5s ease-in-out;
+}
